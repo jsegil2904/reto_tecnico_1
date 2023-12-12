@@ -1,6 +1,5 @@
 import { Card } from "../interfaces/card.interface";
 import { cardRepository } from "../models/card";
-//import { encrypt, verified } from "../utils/bcrypt.handle";
 import { generateToken } from "../utils/jwt.handle";
 import { handleHttp } from "../utils/error.handle";
 import { Request, Response } from "express";
@@ -57,13 +56,6 @@ try{
   }
   
 
-  // const passwordHash = checkIs.password; //TODO el encriptado!
-  // const isCorrect = await verified(password, passwordHash);
-  
-  // if (!isCorrect) return "PASSWORD_INCORRECT";v
-
-  // const token = generateToken(checkIs.email);
-  
   
 };
 
@@ -71,7 +63,6 @@ const verifyCardService = async ({ headers }: Request, res: Response) => {
   const { authorization } = headers;
   const authT = authorization ?? " ";
   const tokenHeader = authT.split(" ").pop() ?? "";
-  //const checkToken = await cardRepository.fetch(tokenHeader);
 
   const checkToken = await cardRepository.search()
     .where('token').equals(tokenHeader)
