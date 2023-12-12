@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "f29fcf69-4e0a-479e-93ac-888b911b84a7",
+		"name": "Culqui",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8665866"
+	},
+	"item": [
+		{
+			"name": "Generar Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"julio.perez30@gmail.com\",\r\n    \"card_number\":\"4111111111111111\",\r\n    \"cvv\":123,\r\n    \"expiration_year\":\"2025\",\r\n    \"expiration_month\":9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4400/tokens",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4400",
+					"path": [
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Operación con el token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInyturytutyuityity0IjoxNzAyMzU1MTU3LCJleHAiOjE3MDIzNTUyMTd9.-PdpLYUjzY6HLPpMBbEOIAlCk0MMLBz7R_ZA5vVqhfI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4400/charges",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4400",
+					"path": [
+						"charges"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "asdasf",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
